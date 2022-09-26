@@ -10,6 +10,7 @@
     </PropertyGroup>
 
     <ItemGroup>
+        <Compile Include="FloorTests.fs" />
         <Compile Include="Program.fs" />
     </ItemGroup>
 
@@ -28,6 +29,7 @@
 
     <ItemGroup>
       <ProjectReference Include="..\Common.Tests\Common.Tests.fsproj" />
+      <ProjectReference Include="..\Star2\Star2.fsproj" />
     </ItemGroup>
 
 </Project>
