@@ -1,0 +1,21 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net6.0</TargetFramework>
+
+        <IsPackable>false</IsPackable>
+        <GenerateProgramFile>false</GenerateProgramFile>
+        <AssemblyName>AdventOfCode.Y2015.Day3.Star2.Tests</AssemblyName>
+        <RootNamespace>AdventOfCode.Y2015.Day3.Star2</RootNamespace>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <Compile Include="Program.fs"/>
+    </ItemGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\Common.Tests\Common.Tests.fsproj"/>
+        <ProjectReference Include="..\Star2\Star2.fsproj"/>
+    </ItemGroup>
+
+</Project>
