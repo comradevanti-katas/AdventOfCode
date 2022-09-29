@@ -5,3 +5,5 @@ open AdventOfCode.Y2015.Day2
 open AdventOfCode.Y2015.Day2.Star2
 
 let ribbonLength box = (box |> Box.smallestPerimeter) + (box |> Box.volume)
+
+let totalRibbonLength boxes = boxes |> List.sumBy ribbonLength
