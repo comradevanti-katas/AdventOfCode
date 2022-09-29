@@ -17,3 +17,9 @@ let surface box =
     (xArea + yArea + zArea) * 2
     
 let volume box = box.Length * box.Width * box.Height
+
+let xyPerimeter box = (box.Width + box.Height) * 2
+
+let zyPerimeter box = (box.Length + box.Height) * 2
+
+let xzPerimeter box = (box.Length + box.Width) * 2
