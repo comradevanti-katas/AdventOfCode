@@ -43,3 +43,12 @@ let ``Box surface is all area summed times 2`` l w h expected =
     let box = { Length = l; Width = w; Height = h }
     let surface = box |> Box.surface
     surface =! expected
+
+[<Theory>]
+[<InlineData(1, 1, 1, 1)>]
+[<InlineData(1, 1, 2, 2)>]
+[<InlineData(2, 3, 4, 24)>]
+let ``Box volume is all sides multiplied`` l w h expected =
+    let box = { Length = l; Width = w; Height = h }
+    let volume = box |> Box.volume
+    volume =! expected

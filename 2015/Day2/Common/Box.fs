@@ -15,3 +15,5 @@ let surface box =
     let yArea = box |> yFaceArea
     let zArea = box |> zFaceArea
     (xArea + yArea + zArea) * 2
+    
+let volume box = box.Length * box.Width * box.Height
