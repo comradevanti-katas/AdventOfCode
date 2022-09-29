@@ -10,12 +10,12 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <Compile Include="Program.fs" />
+        <Compile Include="Program.fs"/>
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\Common.Tests\Common.Tests.fsproj" />
-      <ProjectReference Include="..\Star1\Star1.fsproj" />
+        <ProjectReference Include="..\Common.Tests\Common.Tests.fsproj"/>
+        <ProjectReference Include="..\Star1\Star1.fsproj"/>
     </ItemGroup>
 
 </Project>

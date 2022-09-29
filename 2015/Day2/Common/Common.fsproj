@@ -7,4 +7,9 @@
         <RootNamespace>AdventOfCode.Y2015.Day2</RootNamespace>
     </PropertyGroup>
 
+    <ItemGroup>
+      <Compile Include="Domain.fs" />
+      <Compile Include="Parse.fs" />
+    </ItemGroup>
+
 </Project>
