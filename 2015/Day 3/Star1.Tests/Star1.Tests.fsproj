@@ -7,9 +7,11 @@
         <GenerateProgramFile>false</GenerateProgramFile>
         <AssemblyName>AdventOfCode.Y2015.Day3.Star1.Tests</AssemblyName>
         <RootNamespace>AdventOfCode.Y2015.Day3.Star1</RootNamespace>
+        <OutputType>Exe</OutputType>
     </PropertyGroup>
 
     <ItemGroup>
+        <Compile Include="SleighTests.fs"/>
         <Compile Include="Program.fs"/>
     </ItemGroup>
 

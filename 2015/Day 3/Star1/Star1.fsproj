@@ -8,6 +8,7 @@
     </PropertyGroup>
 
     <ItemGroup>
+        <Compile Include="Sleigh.fs"/>
         <Compile Include="Program.fs"/>
     </ItemGroup>
 
