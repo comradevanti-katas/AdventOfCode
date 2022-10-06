@@ -1,0 +1,10 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net6.0</TargetFramework>
+        <GenerateDocumentationFile>true</GenerateDocumentationFile>
+        <AssemblyName>AdventOfCode.YX.DayY.Common</AssemblyName>
+        <RootNamespace>AdventOfCode.YX.DayY</RootNamespace>
+    </PropertyGroup>
+
+</Project>

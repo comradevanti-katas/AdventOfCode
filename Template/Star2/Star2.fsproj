@@ -1,0 +1,23 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <OutputType>Exe</OutputType>
+        <TargetFramework>net6.0</TargetFramework>
+        <AssemblyName>AdventOfCode.YX.DayY.Star2</AssemblyName>
+        <RootNamespace>AdventOfCode.YX.DayY.Star2</RootNamespace>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <Compile Include="Program.fs" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\Common\Common.fsproj" />
+      <ProjectReference Include="..\Star1\Star1.fsproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Remove="FSharp.Core" />
+    </ItemGroup>
+
+</Project>

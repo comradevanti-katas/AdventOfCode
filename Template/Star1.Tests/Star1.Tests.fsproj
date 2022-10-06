@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net6.0</TargetFramework>
+
+        <IsPackable>false</IsPackable>
+        <GenerateProgramFile>false</GenerateProgramFile>
+        <AssemblyName>AdventOfCode.YX.DayY.Star1.Tests</AssemblyName>
+        <RootNamespace>AdventOfCode.YX.DayY.Star1</RootNamespace>
+        <OutputType>Library</OutputType>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\Common.Tests\Common.Tests.fsproj" />
+      <ProjectReference Include="..\Star1\Star1.fsproj" />
+    </ItemGroup>
+
+</Project>
