@@ -8,6 +8,7 @@
     </PropertyGroup>
 
     <ItemGroup>
+        <Compile Include="NaughtyNice.fs"/>
         <Compile Include="Program.fs"/>
     </ItemGroup>
 
