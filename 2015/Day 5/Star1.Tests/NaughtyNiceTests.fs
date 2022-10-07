@@ -12,6 +12,7 @@ let private shouldNotBeNice s = isNice s =! false
 [<InlineData("aa")>]
 [<InlineData("aebb")>]
 [<InlineData("irre")>]
+[<InlineData("iiggggg")>]
 let ``Nice strings must contain at least 3 vowels`` s = s |> shouldNotBeNice
 
 [<Theory>]
