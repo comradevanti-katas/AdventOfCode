@@ -7,4 +7,12 @@
         <RootNamespace>AdventOfCode.Y2015.Day4</RootNamespace>
     </PropertyGroup>
 
+    <ItemGroup>
+      <Compile Include="Hashing.fs" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="System.Security.Cryptography.Algorithms" Version="4.3.1" />
+    </ItemGroup>
+
 </Project>
