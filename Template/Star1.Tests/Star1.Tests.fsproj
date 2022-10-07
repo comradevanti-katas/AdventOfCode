@@ -4,10 +4,10 @@
         <TargetFramework>net6.0</TargetFramework>
 
         <IsPackable>false</IsPackable>
-        <GenerateProgramFile>false</GenerateProgramFile>
+        <GenerateProgramFile>true</GenerateProgramFile>
         <AssemblyName>AdventOfCode.YX.DayY.Star1.Tests</AssemblyName>
         <RootNamespace>AdventOfCode.YX.DayY.Star1</RootNamespace>
-        <OutputType>Library</OutputType>
+        <OutputType>Exe</OutputType>
     </PropertyGroup>
 
     <ItemGroup>

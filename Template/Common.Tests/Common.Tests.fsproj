@@ -4,7 +4,7 @@
         <TargetFramework>net6.0</TargetFramework>
 
         <IsPackable>false</IsPackable>
-        <GenerateProgramFile>false</GenerateProgramFile>
+        <GenerateProgramFile>true</GenerateProgramFile>
         <AssemblyName>AdventOfCode.YX.DayY.Common.Tests</AssemblyName>
         <RootNamespace>AdventOfCode.YX.DayY</RootNamespace>
         <OutputType>Library</OutputType>
