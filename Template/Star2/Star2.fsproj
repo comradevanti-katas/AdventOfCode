@@ -13,7 +13,6 @@
 
     <ItemGroup>
       <ProjectReference Include="..\Common\Common.fsproj" />
-      <ProjectReference Include="..\Star1\Star1.fsproj" />
     </ItemGroup>
 
     <ItemGroup>
