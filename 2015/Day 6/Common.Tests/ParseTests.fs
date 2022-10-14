@@ -8,11 +8,11 @@ let private makeInstruction ``type`` from ``to`` =
 
 let parseableCases: obj array list =
     [ [| "turn on 0,0 through 999,999"
-         makeInstruction On (0, 0) (999, 999) |]
+         makeInstruction TurnOn (0, 0) (999, 999) |]
       [| "toggle 0,0 through 999,0"
          makeInstruction Toggle (0, 0) (999, 0) |]
       [| "turn off 499,499 through 500,500"
-         makeInstruction Off (499, 499) (500, 500) |] ]
+         makeInstruction TurnOff (499, 499) (500, 500) |] ]
 
 let private cannotBeParsed s = s |> Parse.instruction =! None
 

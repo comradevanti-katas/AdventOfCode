@@ -9,8 +9,8 @@ let private matchRegex =
         @"(?<type>turn on|turn off|toggle) (?<x1>\d+),(?<y1>\d+) through (?<x2>\d+),(?<y2>\d+)"
 
 let private instructionType s =
-    if s = "turn on" then On
-    elif s = "turn off" then Off
+    if s = "turn on" then TurnOn
+    elif s = "turn off" then TurnOff
     else Toggle
 
 let private parseInt = Int32.Parse

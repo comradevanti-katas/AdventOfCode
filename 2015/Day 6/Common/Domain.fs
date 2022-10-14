@@ -4,8 +4,8 @@ module AdventOfCode.Y2015.Day6.Domain
 type XY = int * int
 
 type Type =
-    | On
-    | Off
+    | TurnOn
+    | TurnOff
     | Toggle
 
 type Instruction = { Type: Type; From: XY; To: XY }

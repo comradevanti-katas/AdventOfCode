@@ -9,6 +9,7 @@
 
     <ItemGroup>
       <Compile Include="Domain.fs" />
+      <Compile Include="OptionExt.fs" />
       <Compile Include="Parse.fs" />
     </ItemGroup>
 
