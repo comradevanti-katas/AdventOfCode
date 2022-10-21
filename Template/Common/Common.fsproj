@@ -7,4 +7,9 @@
         <RootNamespace>AdventOfCode.YX.DayY</RootNamespace>
     </PropertyGroup>
 
+    <ItemGroup>
+        <Compile Include="OptionExt.fs"/>
+        <Compile Include="AdventProgram.fs"/>
+    </ItemGroup>
+
 </Project>
