@@ -1,6 +1,5 @@
 ﻿open System.IO
 open AdventOfCode.Y2015.Day6
-open AdventOfCode.Y2015.Day6.Star1
 open AdventOfCode.Y2015.Day6.Star1.Light
 open Microsoft.FSharp.Core
 

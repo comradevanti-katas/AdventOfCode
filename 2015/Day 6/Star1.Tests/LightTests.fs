@@ -34,6 +34,8 @@ let ``Toggling a light flips its status`` prior =
 
 [<Fact>]
 let ``Turning the whole range on turns all lights on`` () =
-    let instruction = { Type = TurnOn; From = (0, 0); To = (999, 999) }
+    let instruction =
+        { Type = TurnOn; From = (0, 0); To = (999, 999) }
+
     let grid = instruction |> executeIn baseGrid
     grid |> List.collect id |> List.forall ((=) On) =! true

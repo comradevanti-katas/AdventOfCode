@@ -8,6 +8,7 @@
     </PropertyGroup>
 
     <ItemGroup>
+        <Compile Include="Light.fs"/>
         <Compile Include="Program.fs"/>
     </ItemGroup>
 

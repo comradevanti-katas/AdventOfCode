@@ -1,5 +1,5 @@
 ﻿[<Microsoft.FSharp.Core.RequireQualifiedAccess>]
-module AdventOfCode.Y2015.Day6.Star1.List
+module AdventOfCode.Y2015.Day6.List
 
 let mapInRange min max f list =
     list
