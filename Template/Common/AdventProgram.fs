@@ -1,5 +1,4 @@
-﻿[<Microsoft.FSharp.Core.RequireQualifiedAccess>]
-module AdventOfCode.AdventProgram
+﻿module AdventOfCode.AdventProgram
 
 open System.IO
 open Microsoft.FSharp.Core
@@ -18,19 +17,19 @@ let private tryGetArg index args =
         | Some arg -> Ok arg
         | None -> Error NoPath
 
-let tryReadTextAt path =
+let private tryReadTextAt path =
     try
         File.ReadAllText path |> Ok
     with
     | _ -> Error(IO path)
 
-let tryReadLinesAt path =
+let private tryReadLinesAt path =
     try
         File.ReadLines path |> Seq.toList |> Ok
     with
     | _ -> Error(IO path)
 
-let parseEach f =
+let parseEachWith f =
     (fun input ->
         input
         |> List.map f
@@ -39,14 +38,18 @@ let parseEach f =
             | Some instructions -> Ok instructions
             | None -> Error Parse)
 
-let parseAll f =
+let parseWith f =
     (fun input ->
         f input
         |> function
             | Some instructions -> Ok instructions
             | None -> Error Parse)
 
-let make read parse eval makeMsg : ConsoleApp =
+let allText = tryReadTextAt
+
+let allLines = tryReadLinesAt
+
+let makeProgram read parse eval makeMsg : ConsoleApp =
     (fun (args: string []) ->
         let path = args |> tryGetArg 0
         let content = path |> Result.bind read
