@@ -1,0 +1,15 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net6.0</TargetFramework>
+        <GenerateDocumentationFile>true</GenerateDocumentationFile>
+        <AssemblyName>AdventOfCode.Y2015.Day9.Common</AssemblyName>
+        <RootNamespace>AdventOfCode.Y2015.Day9</RootNamespace>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <Compile Include="OptionExt.fs"/>
+        <Compile Include="AdventProgram.fs"/>
+    </ItemGroup>
+
+</Project>
