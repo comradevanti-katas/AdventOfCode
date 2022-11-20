@@ -9,7 +9,6 @@
 
     <ItemGroup>
         <Compile Include="Pathfinding.fs" />
-        <Compile Include="Parse.fs" />
         <Compile Include="Program.fs" />
     </ItemGroup>
 

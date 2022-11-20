@@ -1,5 +1,5 @@
 ﻿open AdventOfCode.AdventProgram
-open AdventOfCode.Y2015.Day9.Star1
+open AdventOfCode.Y2015.Day9
 open AdventOfCode.Y2015.Day9.Star1.Pathfinding
 
 let private eval distances =

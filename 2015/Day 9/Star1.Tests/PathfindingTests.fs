@@ -2,6 +2,7 @@
 
 open global.Xunit
 open Swensen.Unquote
+open AdventOfCode.Y2015.Day9
 open AdventOfCode.Y2015.Day9.Star1.Pathfinding
 
 let private london = "London"
