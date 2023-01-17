@@ -3,7 +3,7 @@
 open System.IO
 open Microsoft.FSharp.Core
 
-type ConsoleApp = string [] -> int
+type ConsoleApp = string[] -> int
 
 type Error =
     | NoPath
@@ -20,14 +20,14 @@ let private tryGetArg index args =
 let private tryReadTextAt path =
     try
         File.ReadAllText path |> Ok
-    with
-    | _ -> Error(IO path)
+    with _ ->
+        Error(IO path)
 
 let private tryReadLinesAt path =
     try
         File.ReadLines path |> Seq.toList |> Ok
-    with
-    | _ -> Error(IO path)
+    with _ ->
+        Error(IO path)
 
 let parseEachWith f =
     (fun input ->
@@ -50,7 +50,7 @@ let allText = tryReadTextAt
 let allLines = tryReadLinesAt
 
 let makeProgram read parse eval makeMsg : ConsoleApp =
-    (fun (args: string []) ->
+    (fun (args: string[]) ->
         let path = args |> tryGetArg 0
         let content = path |> Result.bind read
         let parsed = content |> Result.bind parse
@@ -58,7 +58,7 @@ let makeProgram read parse eval makeMsg : ConsoleApp =
 
         match result with
         | Ok value ->
-            printf (makeMsg value)
+            printf $"%s{makeMsg value}"
             0
         | Error err ->
             printf $"Error: %A{err}"
