@@ -1,8 +1,8 @@
-﻿module AdventOfCode.Y2015.Day11.Star1.ValidationTests
+﻿module AdventOfCode.Y2015.Day11.ValidationTests
 
 open Xunit
 open Swensen.Unquote.Assertions
-open AdventOfCode.Y2015.Day11.Star1.Validation
+open AdventOfCode.Y2015.Day11.Validation
 
 [<Theory>]
 [<InlineData("qqrss")>]

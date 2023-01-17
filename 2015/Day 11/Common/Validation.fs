@@ -1,4 +1,4 @@
-﻿module AdventOfCode.Y2015.Day11.Star1.Validation
+﻿module AdventOfCode.Y2015.Day11.Validation
 
 type Error =
     | InvalidLetter of char

@@ -8,8 +8,11 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <Compile Include="OptionExt.fs"/>
-        <Compile Include="AdventProgram.fs"/>
+        <Compile Include="OptionExt.fs" />
+        <Compile Include="AdventProgram.fs" />
+        <Compile Include="Domain.fs" />
+        <Compile Include="Validation.fs" />
+        <Compile Include="PasswordGen.fs" />
     </ItemGroup>
 
 </Project>

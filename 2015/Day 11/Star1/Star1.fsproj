@@ -8,14 +8,11 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <Compile Include="Domain.fs"/>
-        <Compile Include="Validation.fs"/>
-        <Compile Include="PasswordGen.fs"/>
-        <Compile Include="Program.fs"/>
+        <Compile Include="Program.fs" />
     </ItemGroup>
 
     <ItemGroup>
-        <ProjectReference Include="..\Common\Common.fsproj"/>
+        <ProjectReference Include="..\Common\Common.fsproj" />
     </ItemGroup>
 
 </Project>

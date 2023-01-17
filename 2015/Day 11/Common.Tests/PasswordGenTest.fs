@@ -1,7 +1,7 @@
-﻿module AdventOfCode.Y2015.Day11.Star1.PasswordGenTest
+﻿module AdventOfCode.Y2015.Day11.PasswordGenTest
 
 open Xunit
-open AdventOfCode.Y2015.Day11.Star1.PasswordGen
+open AdventOfCode.Y2015.Day11.PasswordGen
 open Swensen.Unquote.Assertions
 
 [<Theory>]

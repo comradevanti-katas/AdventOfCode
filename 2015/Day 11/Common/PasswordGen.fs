@@ -1,6 +1,6 @@
-﻿module AdventOfCode.Y2015.Day11.Star1.PasswordGen
+﻿module AdventOfCode.Y2015.Day11.PasswordGen
 
-open AdventOfCode.Y2015.Day11.Star1.Validation
+open AdventOfCode.Y2015.Day11.Validation
 
 let private mapAt i f arr =
     arr |> Array.mapi (fun i' item -> if i = i' then f item else item)
@@ -25,7 +25,8 @@ let increment (password: Password) =
     new string (newChars)
 
 let rec findNextPassword password =
-    if password |> isValid then
-        password
+    let incremented = password |> increment
+    if incremented |> isValid then
+        incremented
     else
-        password |> increment |> findNextPassword
+        incremented |> findNextPassword

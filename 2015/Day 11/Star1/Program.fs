@@ -1,5 +1,5 @@
 ﻿open AdventOfCode.AdventProgram
-open AdventOfCode.Y2015.Day11.Star1.PasswordGen
+open AdventOfCode.Y2015.Day11.PasswordGen
 
 let private eval startPassword = startPassword |> findNextPassword
 
