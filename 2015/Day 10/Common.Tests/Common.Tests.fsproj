@@ -31,6 +31,7 @@
 
     <ItemGroup>
         <Compile Include="ParseTests.fs"/>
+        <Compile Include="LookSayTests.fs"/>
     </ItemGroup>
 
 </Project>

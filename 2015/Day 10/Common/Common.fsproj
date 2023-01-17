@@ -11,6 +11,7 @@
         <Compile Include="OptionExt.fs"/>
         <Compile Include="AdventProgram.fs"/>
         <Compile Include="Domain.fs"/>
+        <Compile Include="LookSay.fs"/>
         <Compile Include="Parse.fs"/>
     </ItemGroup>
 

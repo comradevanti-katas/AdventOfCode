@@ -1,4 +1,4 @@
-﻿module AdventOfCode.Y2015.Day10.Star1.LookSay
+﻿module AdventOfCode.Y2015.Day10.LookSay
 
 open AdventOfCode.Y2015.Day10
 
@@ -25,3 +25,9 @@ let lookSay blocks =
         [ { Digit = block.Count; Count = 1 }
           { Digit = block.Digit; Count = 1 } ])
     |> merge
+
+let rec lookSayTimes remaining blocks =
+    if remaining = 0 then
+        blocks
+    else
+        blocks |> lookSay |> lookSayTimes (remaining - 1)

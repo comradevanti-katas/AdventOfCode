@@ -1,4 +1,4 @@
-﻿module AdventOfCode.Y2015.Day10.Star1.LookSayTests
+﻿module AdventOfCode.Y2015.Day10.LookSayTests
 
 open Xunit
 open AdventOfCode.Y2015.Day10
