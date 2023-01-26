@@ -29,4 +29,9 @@
         <ProjectReference Include="..\Common\Common.fsproj"/>
     </ItemGroup>
 
+    <ItemGroup>
+        <Compile Include="ParseTests.fs"/>
+        <Compile Include="SeatingArrangementTests.fs"/>
+    </ItemGroup>
+
 </Project>
