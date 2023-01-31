@@ -1,5 +1,5 @@
 ﻿[<Microsoft.FSharp.Core.AutoOpen>]
-module AdventOfCode.Y2015.Day7.Star1.Domain
+module AdventOfCode.Y2015.Day7.Domain
 
 
 type WireId = string

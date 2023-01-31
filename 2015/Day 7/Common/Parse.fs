@@ -1,5 +1,5 @@
 ﻿[<Microsoft.FSharp.Core.RequireQualifiedAccess>]
-module AdventOfCode.Y2015.Day7.Star1.Parse
+module AdventOfCode.Y2015.Day7.Parse
 
 open System.Text.RegularExpressions
 open FSharp.Text.RegexExtensions

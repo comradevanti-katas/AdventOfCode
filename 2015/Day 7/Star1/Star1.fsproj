@@ -8,9 +8,6 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <Compile Include="Domain.fs"/>
-        <Compile Include="Circuit.fs"/>
-        <Compile Include="Parse.fs"/>
         <Compile Include="Program.fs"/>
     </ItemGroup>
 

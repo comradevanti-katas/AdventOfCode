@@ -3,7 +3,7 @@
 open FsCheck.Xunit
 open global.Xunit
 open Swensen.Unquote.Assertions
-open AdventOfCode.Y2015.Day7.Star1
+open AdventOfCode.Y2015.Day7
 
 [<Property>]
 let ``Transports copy constant signals without change`` signal =

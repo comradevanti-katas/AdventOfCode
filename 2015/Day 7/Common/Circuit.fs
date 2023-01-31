@@ -1,4 +1,4 @@
-﻿namespace AdventOfCode.Y2015.Day7.Star1
+﻿namespace AdventOfCode.Y2015.Day7
 
 open AdventOfCode
 open Microsoft.FSharp.Collections
@@ -54,8 +54,11 @@ module Circuit =
 
         trySignalOn' wire
 
+    let empty = Circuit Map.empty
+
+    let putPart part (Circuit partsByOutput) =
+        partsByOutput |> Map.add (outputOf part) part |> Circuit
+
     let makeFrom parts =
-        (Map.empty, parts)
-        ||> Seq.fold (fun partsByOutput part ->
-            partsByOutput |> Map.add (outputOf part) part)
-        |> Circuit
+        (empty, parts)
+        ||> Seq.fold (fun circuit part -> circuit |> putPart part)

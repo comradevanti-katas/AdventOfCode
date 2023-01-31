@@ -1,14 +1,26 @@
-﻿module AdventOfCode.Y2015.Day7.Star2.Program
+﻿module AdventOfCode.Y2015.Day7.Star1.Program
 
 open AdventOfCode.AdventProgram
+open AdventOfCode.Y2015.Day7
 
-let private parse _ = failwith "Implement"
+let private read = allLines
 
-let private read _ = failwith "Implement"
+let private parse = parseEachWith Parse.toPart
 
-let private eval _ = failwith "Implement"
+let private eval parts =
+    let circuit = Circuit.makeFrom parts
 
-let private makeMsg _ = failwith "Implement"
+    circuit
+    |> Circuit.trySignalOn "a"
+    |> Option.bind (fun signal ->
+        let part = transport (Constant signal) "b"
+        let circuit = circuit |> Circuit.putPart part
+        circuit |> Circuit.trySignalOn "a")
+
+let private makeMsg result =
+    match result with
+    | Some signal -> $"Signal on a is %u{signal}"
+    | None -> "Signal could not be calculated"
 
 let private program = makeProgram read parse eval makeMsg
 
