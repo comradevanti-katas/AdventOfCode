@@ -2,13 +2,18 @@
 
 open AdventOfCode.AdventProgram
 
-let private parse _ = failwith "Implement"
+let private read = allLines
 
-let private read _ = failwith "Implement"
+let private parse = parseEachWith Parse.toPart
 
-let private eval _ = failwith "Implement"
+let private eval parts =
+    let circuit = Circuit.makeFrom parts
+    circuit |> Circuit.trySignalOn "a"
 
-let private makeMsg _ = failwith "Implement"
+let private makeMsg result =
+    match result with
+    | Some signal -> $"Signal on a is %u{signal}"
+    | None -> "Signal could not be calculated"
 
 let private program = makeProgram read parse eval makeMsg
 
