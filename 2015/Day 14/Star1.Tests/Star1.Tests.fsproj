@@ -16,8 +16,7 @@
     </ItemGroup>
 
     <ItemGroup>
-        <Compile Include="ReindeerTests.fs"/>
-        <Compile Include="ParseTests.fs"/>
+        <Compile Include="ReindeerRacingTests.fs"/>
     </ItemGroup>
 
 </Project>

@@ -1,7 +1,8 @@
-﻿module AdventOfCode.Y2015.Day14.Star1.ReindeerTests
+﻿module AdventOfCode.Y2015.Day14.Star1.ReindeerRacingTests
 
 open Xunit
-open AdventOfCode.Y2015.Day14.Star1.Reindeer
+open AdventOfCode.Y2015.Day14.Reindeer
+open AdventOfCode.Y2015.Day14.Star1.ReindeerRacing
 open Swensen.Unquote.Assertions
 
 [<TheoryAttribute>]
@@ -20,13 +21,13 @@ let ``Distance is calculated correctly``
     raceTime
     expected
     =
-    let reindeer = reindeer speed flyTime restTime
-    let distance = reindeer |> raceFor raceTime
+    let reindeer = reindeer "Rudolph" speed flyTime restTime
+    let distance = reindeer |> distanceAfter raceTime
     distance =! expected
 
 [<Fact>]
 let ``Can find the top distance`` () =
-    let comet = reindeer 14 10 127
-    let dancer = reindeer 16 11 162
+    let comet = reindeer "Comet" 14 10 127
+    let dancer = reindeer "Dancer" 16 11 162
     let topDistance = findTopDistance [ comet; dancer ] 1000
     topDistance =! 1120

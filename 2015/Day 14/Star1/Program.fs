@@ -1,7 +1,8 @@
 ﻿module AdventOfCode.Y2015.Day14.Star1.Program
 
 open AdventOfCode.AdventProgram
-open AdventOfCode.Y2015.Day14.Star1.Reindeer
+open AdventOfCode.Y2015.Day14
+open AdventOfCode.Y2015.Day14.Star1.ReindeerRacing
 
 let private read = allLines
 
