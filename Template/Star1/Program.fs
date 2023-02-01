@@ -2,9 +2,9 @@
 
 open AdventOfCode.AdventProgram
 
-let private parse _ = failwith "Implement"
-
 let private read _ = failwith "Implement"
+
+let private parse _ = failwith "Implement"
 
 let private eval _ = failwith "Implement"
 
