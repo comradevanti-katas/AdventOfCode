@@ -15,4 +15,9 @@
         <ProjectReference Include="..\Star1\Star1.fsproj"/>
     </ItemGroup>
 
+    <ItemGroup>
+        <Compile Include="ReindeerTests.fs"/>
+        <Compile Include="ParseTests.fs"/>
+    </ItemGroup>
+
 </Project>

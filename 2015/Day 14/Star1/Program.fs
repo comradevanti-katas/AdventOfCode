@@ -1,14 +1,15 @@
 ﻿module AdventOfCode.Y2015.Day14.Star1.Program
 
 open AdventOfCode.AdventProgram
+open AdventOfCode.Y2015.Day14.Star1.Reindeer
 
-let private read _ = failwith "Implement"
+let private read = allLines
 
-let private parse _ = failwith "Implement"
+let private parse = parseEachWith Parse.toReindeer
 
-let private eval _ = failwith "Implement"
+let private eval reindeer = findTopDistance reindeer 2503
 
-let private makeMsg _ = failwith "Implement"
+let private makeMsg time = $"The fastest time was %d{time}"
 
 let private program = makeProgram read parse eval makeMsg
 
