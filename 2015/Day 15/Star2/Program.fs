@@ -1,4 +1,4 @@
-﻿module AdventOfCode.Y2015.Day16.Star2.Program
+﻿module AdventOfCode.Y2015.Day15.Star2.Program
 
 open AdventOfCode.AdventProgram
 

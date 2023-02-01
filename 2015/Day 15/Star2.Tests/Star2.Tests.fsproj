@@ -5,8 +5,8 @@
 
         <IsPackable>false</IsPackable>
         <GenerateProgramFile>true</GenerateProgramFile>
-        <AssemblyName>AdventOfCode.Y2015.Day16.Star2.Tests</AssemblyName>
-        <RootNamespace>AdventOfCode.Y2015.Day16.Star2</RootNamespace>
+        <AssemblyName>AdventOfCode.Y2015.Day15.Star2.Tests</AssemblyName>
+        <RootNamespace>AdventOfCode.Y2015.Day15.Star2</RootNamespace>
         <OutputType>Exe</OutputType>
     </PropertyGroup>
 

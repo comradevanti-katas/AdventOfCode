@@ -5,8 +5,8 @@
 
         <IsPackable>false</IsPackable>
         <GenerateProgramFile>true</GenerateProgramFile>
-        <AssemblyName>AdventOfCode.Y2015.Day16.Common.Tests</AssemblyName>
-        <RootNamespace>AdventOfCode.Y2015.Day16</RootNamespace>
+        <AssemblyName>AdventOfCode.Y2015.Day15.Common.Tests</AssemblyName>
+        <RootNamespace>AdventOfCode.Y2015.Day15</RootNamespace>
         <OutputType>Library</OutputType>
     </PropertyGroup>
 
@@ -27,6 +27,10 @@
 
     <ItemGroup>
         <ProjectReference Include="..\Common\Common.fsproj"/>
+    </ItemGroup>
+
+    <ItemGroup>
+        <Compile Include="ParseTests.fs"/>
     </ItemGroup>
 
 </Project>
