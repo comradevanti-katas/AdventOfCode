@@ -5,7 +5,8 @@ type Ingredient =
     { Capacity: int
       Durability: int
       Flavor: int
-      Texture: int }
+      Texture: int
+      Calories: int }
 
 type Amount = Teaspoons of int
 

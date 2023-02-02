@@ -5,7 +5,7 @@ open FSharp.Text.RegexProvider
 open FSharp.Text.RegexExtensions
 
 type IngredientRegex =
-    Regex< @"^[^\-\d]+(?<capacity>[\-\d]+)[^\-\d]*(?<durability>[\-\d]+)[^\-\d]+(?<flavor>[\-\d]+)[^\-\d]+(?<texture>[\-\d]+)[^\-\d]+[\-\d]+$" >
+    Regex< @"^[^\-\d]+(?<capacity>[\-\d]+)[^\-\d]*(?<durability>[\-\d]+)[^\-\d]+(?<flavor>[\-\d]+)[^\-\d]+(?<texture>[\-\d]+)[^\-\d]+(?<calories>[\-\d]+)$" >
 
 let ingredientRegex = IngredientRegex()
 
@@ -15,4 +15,5 @@ let toIngredient s =
         { Capacity = m.capacity.AsInt
           Durability = m.durability.AsInt
           Flavor = m.flavor.AsInt
-          Texture = m.texture.AsInt })
+          Texture = m.texture.AsInt
+          Calories = m.calories.AsInt })

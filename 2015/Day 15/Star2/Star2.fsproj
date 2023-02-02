@@ -8,6 +8,7 @@
     </PropertyGroup>
 
     <ItemGroup>
+        <Compile Include="Cookie.fs"/>
         <Compile Include="Program.fs"/>
     </ItemGroup>
 

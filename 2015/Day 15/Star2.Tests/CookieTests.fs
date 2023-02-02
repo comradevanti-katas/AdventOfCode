@@ -1,7 +1,7 @@
-﻿module AdventOfCode.Y2015.Day15.Star1.CookieTests
+﻿module AdventOfCode.Y2015.Day15.Star2.CookieTests
 
 open AdventOfCode.Y2015.Day15
-open AdventOfCode.Y2015.Day15.Star1.Cookie
+open AdventOfCode.Y2015.Day15.Star2.Cookie
 open Swensen.Unquote.Assertions
 open Xunit
 
@@ -22,4 +22,4 @@ let ``Can find the optimal score`` () =
           Calories = 3 }
 
     let ingredients = [ butterscotch; cinnamon ]
-    findOptimalScoreFor ingredients =! 62842880
+    findOptimalScoreFor ingredients =! 57600000

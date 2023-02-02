@@ -13,6 +13,7 @@ let ``Can parse valid ingredient`` () =
         { Capacity = -1
           Durability = -2
           Flavor = 6
-          Texture = 3 }
+          Texture = 3
+          Calories = 8 }
 
     Parse.toIngredient s =! Some expected

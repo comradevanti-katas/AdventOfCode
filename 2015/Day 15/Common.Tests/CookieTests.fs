@@ -1,12 +1,13 @@
-﻿module AdventOfCode.Y2015.Day15.Star1.CookieTests
+﻿module AdventOfCode.Y2015.Day15.CookieTests
 
 open AdventOfCode.Y2015.Day15
-open AdventOfCode.Y2015.Day15.Star1.Cookie
+open AdventOfCode.Y2015.Day15.Cookie
 open Swensen.Unquote.Assertions
 open Xunit
 
 [<Fact>]
-let ``Can find the optimal score`` () =
+let ``Score of cookie is calculated correctly`` () =
+
     let butterscotch =
         { Capacity = -1
           Durability = -2
@@ -21,5 +22,8 @@ let ``Can find the optimal score`` () =
           Texture = -1
           Calories = 3 }
 
-    let ingredients = [ butterscotch; cinnamon ]
-    findOptimalScoreFor ingredients =! 62842880
+    let recipe =
+        makeRecipe
+            [ 44 |> teaspoonsOf butterscotch; 56 |> teaspoonsOf cinnamon ]
+
+    scoreCookieMadeFrom recipe =! 62842880
