@@ -1,5 +1,5 @@
 ﻿[<Microsoft.FSharp.Core.AutoOpen>]
-module AdventOfCode.Y2015.Day17.Star1.Domain
+module AdventOfCode.Y2015.Day17.Domain
 
 open Microsoft.FSharp.Collections
 

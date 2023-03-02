@@ -1,5 +1,5 @@
 ﻿[<Microsoft.FSharp.Core.RequireQualifiedAccess>]
-module AdventOfCode.Y2015.Day17.Star1.Parse
+module AdventOfCode.Y2015.Day17.Parse
 
 open System
 

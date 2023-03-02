@@ -1,7 +1,7 @@
-﻿module AdventOfCode.Y2015.Day17.Star1.DomainTests
+﻿module AdventOfCode.Y2015.Day17.DomainTests
 
 open Xunit
-open AdventOfCode.Y2015.Day17.Star1
+open AdventOfCode.Y2015.Day17
 open Swensen.Unquote.Assertions
 
 [<Fact>]

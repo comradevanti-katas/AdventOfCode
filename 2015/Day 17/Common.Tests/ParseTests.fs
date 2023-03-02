@@ -1,4 +1,4 @@
-﻿module AdventOfCode.Y2015.Day17.Star1.ParseTests
+﻿module AdventOfCode.Y2015.Day17.ParseTests
 
 open Xunit
 open Swensen.Unquote.Assertions
