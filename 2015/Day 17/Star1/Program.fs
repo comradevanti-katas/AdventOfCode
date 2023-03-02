@@ -2,13 +2,19 @@
 
 open AdventOfCode.AdventProgram
 
-let private read _ = failwith "Implement"
+let private read = allLines
 
-let private parse _ = failwith "Implement"
+let private parse =
+    let mutable id = 0u
+    parseEachWith (fun s ->
+        id <- id + 1u
+        Parse.tryContainer id s)
 
-let private eval _ = failwith "Implement"
+let private eval containers =
+    containers |> combinationsFor 150u |> Seq.length
 
-let private makeMsg _ = failwith "Implement"
+let private makeMsg combinations =
+    $"There are %d{combinations} combinations"
 
 let private program = makeProgram read parse eval makeMsg
 
