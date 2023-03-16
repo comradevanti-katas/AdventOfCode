@@ -1,14 +1,17 @@
 ﻿module AdventOfCode.Y2015.Day18.Star2.Program
 
 open AdventOfCode.AdventProgram
+open AdventOfCode.Y2015.Day18
+open LightAnimation
 
-let private read _ = failwith "Implement"
+let private read = allText
 
-let private parse _ = failwith "Implement"
+let private parse = parseWith Parse.tryGrid
 
-let private eval _ = failwith "Implement"
+let private eval grid =
+    grid |> animateTimes 100 |> onLightCount
 
-let private makeMsg _ = failwith "Implement"
+let private makeMsg lights = $"There are %d{lights} on lights"
 
 let private program = makeProgram read parse eval makeMsg
 

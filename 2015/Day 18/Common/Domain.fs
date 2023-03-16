@@ -57,7 +57,4 @@ let positionsIn grid =
     }
 
 let onLightCount (Lights lights) =
-    lights
-    |> List.collect id
-    |> List.filter isOn
-    |> List.length
+    lights |> List.collect id |> List.filter isOn |> List.length

@@ -8,15 +8,16 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <Compile Include="Program.fs"/>
+        <ProjectReference Include="..\Common\Common.fsproj" />
     </ItemGroup>
 
     <ItemGroup>
-        <ProjectReference Include="..\Common\Common.fsproj"/>
+        <PackageReference Remove="FSharp.Core" />
     </ItemGroup>
 
     <ItemGroup>
-        <PackageReference Remove="FSharp.Core"/>
+      <Compile Include="LightAnimation.fs" />
+      <Compile Include="Program.fs" />
     </ItemGroup>
 
 </Project>
