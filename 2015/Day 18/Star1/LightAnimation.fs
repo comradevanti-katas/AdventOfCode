@@ -1,5 +1,7 @@
 ﻿module AdventOfCode.Y2015.Day18.Star1.LightAnimation
 
+open AdventOfCode.Y2015.Day18
+
 let animateOnce grid =
 
     let nextLightState (x, y) light =

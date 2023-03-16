@@ -1,6 +1,7 @@
 ﻿module AdventOfCode.Y2015.Day18.Star1.LightAnimationTests
 
 open Xunit
+open AdventOfCode.Y2015.Day18
 open LightAnimation
 open Swensen.Unquote.Assertions
 

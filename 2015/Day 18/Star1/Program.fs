@@ -1,6 +1,7 @@
 ﻿module AdventOfCode.Y2015.Day18.Star1.Program
 
 open AdventOfCode.AdventProgram
+open AdventOfCode.Y2015.Day18
 open LightAnimation
 
 let private read = allText

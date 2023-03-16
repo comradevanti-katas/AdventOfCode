@@ -11,14 +11,12 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <ProjectReference Include="..\Common.Tests\Common.Tests.fsproj"/>
-        <ProjectReference Include="..\Star1\Star1.fsproj"/>
+        <ProjectReference Include="..\Common.Tests\Common.Tests.fsproj" />
+        <ProjectReference Include="..\Star1\Star1.fsproj" />
     </ItemGroup>
 
     <ItemGroup>
-        <Compile Include="DomainTests.fs"/>
-        <Compile Include="LightAnimationTests.fs"/>
-        <Compile Include="ParseTests.fs"/>
+        <Compile Include="LightAnimationTests.fs" />
     </ItemGroup>
 
 </Project>

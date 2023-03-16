@@ -1,4 +1,4 @@
-﻿module AdventOfCode.Y2015.Day18.Star1.ParseTests
+﻿module AdventOfCode.Y2015.Day18.ParseTests
 
 open System
 open Xunit

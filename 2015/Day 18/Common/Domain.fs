@@ -1,5 +1,5 @@
 ﻿[<Microsoft.FSharp.Core.AutoOpen>]
-module AdventOfCode.Y2015.Day18.Star1.Domain
+module AdventOfCode.Y2015.Day18.Domain
 
 type LightStatus =
     | On
