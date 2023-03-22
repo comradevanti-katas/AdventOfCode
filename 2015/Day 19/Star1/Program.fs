@@ -1,14 +1,16 @@
 ﻿module AdventOfCode.Y2015.Day19.Star1.Program
 
 open AdventOfCode.AdventProgram
+open Calibration
 
-let private read _ = failwith "Implement"
+let private read = allLines
 
-let private parse _ = failwith "Implement"
+let private parse = parseWith Parse.tryInput
 
-let private eval _ = failwith "Implement"
+let private eval (replacements, molecule) =
+    calibrate replacements molecule |> Set.count
 
-let private makeMsg _ = failwith "Implement"
+let private makeMsg count = $"There are %d{count} molecules"
 
 let private program = makeProgram read parse eval makeMsg
 
