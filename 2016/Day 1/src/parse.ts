@@ -1,26 +1,26 @@
-import {MoveInstruction} from "./domain";
+import {Left, makeMove, Move, Right} from "./domain";
 
-function tryParseInstruction(s: string): MoveInstruction | null {
+function tryParseMove(s: string): Move | null {
     if (s.length < 2) return null
 
     let direction = s.substring(0, 1)
-    if (!(direction === 'R' || direction === 'L')) return null
+    if (!(direction === Right || direction === Left)) return null
 
     let stepCountString = s.substring(1)
     let stepCount = parseInt(stepCountString)
 
     if (isNaN(stepCount)) return null
 
-    return {turnDirection: direction, stepCount}
+    return makeMove(direction, stepCount)
 }
 
-export function tryParse(s: string): MoveInstruction[] | null {
+export function tryParse(s: string): Move[] | null {
     if (s.length === 0) return []
 
     let parts = s.split(", ")
-    let instructions = parts.map(tryParseInstruction)
+    let move = parts.map(tryParseMove)
 
-    if (instructions.some(it => it === null))
+    if (move.some(it => it === null))
         return null
-    return instructions
+    return move as Move[]
 }

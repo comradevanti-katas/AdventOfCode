@@ -1,4 +1,4 @@
-import {MoveInstruction} from "../src/domain";
+import {moveLeftBy, moveRightBy, Move} from "../src/domain";
 import {tryParse} from "../src/parse";
 
 test("Empty string is empty array", () => {
@@ -8,15 +8,15 @@ test("Empty string is empty array", () => {
 
 test("Can parse single instruction", () => {
     let input = "R2"
-    let expected: MoveInstruction[] = [{turnDirection: 'R', stepCount: 2}]
+    let expected: Move[] = [moveRightBy(2)]
     expect(tryParse(input)).toEqual(expected)
 })
 
 test("Can parse multiple instructions", () => {
     let input = "R3, L4"
-    let expected: MoveInstruction[] = [
-        {turnDirection: 'R', stepCount: 3},
-        {turnDirection: 'L', stepCount: 4}
+    let expected: Move[] = [
+        moveRightBy(3),
+        moveLeftBy(4)
     ]
     expect(tryParse(input)).toEqual(expected)
 })
