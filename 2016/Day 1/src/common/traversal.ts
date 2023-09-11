@@ -1,4 +1,14 @@
-import {Direction, Intersection, intersectionAt, Left, Location, locationAt, Move, TurnDirection} from "../common/domain.js";
+import {
+    Direction,
+    Intersection,
+    intersectionAt,
+    Left,
+    Location,
+    locationAt, makeMove,
+    Move,
+    Path,
+    TurnDirection
+} from "./domain.js";
 
 export const origin = intersectionAt(0, 0)
 
@@ -42,4 +52,12 @@ export function afterMove(location: Location, move: Move): Location {
     const intersection = movedInDirection(location.intersection, facing, move.stepCount)
 
     return locationAt(intersection, facing)
+}
+
+export function extendPath(path: Path, move: Move): Path {
+    let currentLocation = path[path.length - 1]
+    let nextLocations = Array.from({length: move.stepCount}, (_, i) => i + 1)
+        .map(stepCount => makeMove(move.direction, stepCount))
+        .map(subMove => afterMove(currentLocation, subMove))
+    return [...path, ...nextLocations]
 }

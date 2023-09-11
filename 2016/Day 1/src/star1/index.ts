@@ -2,7 +2,7 @@ import 'dotenv/config'
 import {readFile} from "fs/promises"
 import {tryParse} from '../common/parse.js'
 import {Direction, locationAt} from "../common/domain.js";
-import {afterMove, distanceOf, origin} from "./traversal.js";
+import {afterMove, distanceOf, origin} from "../common/traversal.js";
 
 async function star1() {
     let inputPath = process.env.INPUT

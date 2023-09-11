@@ -26,6 +26,10 @@ export type Location = {
     facing: Direction
 }
 
+export type NonEmptyArray<T> = [T, ...T[]];
+
+export type Path = NonEmptyArray<Location>
+
 export function makeMove(direction: TurnDirection, stepCount: number): Move {
     return {direction, stepCount}
 }
