@@ -1,5 +1,5 @@
-import {afterMove, distanceOf, origin} from "../src/traversal";
-import {Direction, intersectionAt, locationAt, moveLeftBy, moveRightBy} from "../src/domain";
+import {afterMove, distanceOf, origin} from "./traversal.js";
+import {Direction, intersectionAt, locationAt, moveLeftBy, moveRightBy} from "../common/domain.js";
 
 test("Origin has distance 0", () => {
     let intersection = origin

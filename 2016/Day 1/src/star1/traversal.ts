@@ -1,4 +1,4 @@
-import {Direction, Intersection, intersectionAt, Left, Location, locationAt, Move, TurnDirection} from "./domain";
+import {Direction, Intersection, intersectionAt, Left, Location, locationAt, Move, TurnDirection} from "../common/domain.js";
 
 export const origin = intersectionAt(0, 0)
 

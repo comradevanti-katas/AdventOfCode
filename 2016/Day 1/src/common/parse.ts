@@ -1,4 +1,4 @@
-import {Left, makeMove, Move, Right} from "./domain";
+import {Left, makeMove, Move, Right} from "./domain.js";
 
 function tryParseMove(s: string): Move | null {
     if (s.length < 2) return null

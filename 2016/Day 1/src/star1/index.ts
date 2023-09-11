@@ -1,10 +1,10 @@
 import 'dotenv/config'
 import {readFile} from "fs/promises"
-import {tryParse} from './parse'
-import {Direction, locationAt} from "./domain";
-import {afterMove, distanceOf, origin} from "./traversal";
+import {tryParse} from '../common/parse.js'
+import {Direction, locationAt} from "../common/domain.js";
+import {afterMove, distanceOf, origin} from "./traversal.js";
 
-async function day1() {
+async function star1() {
     let inputPath = process.env.INPUT
     if (inputPath === undefined) throw new Error("No input path")
 
@@ -20,4 +20,4 @@ async function day1() {
     console.log(`Final distance is ${distance}`)
 }
 
-day1()
+star1()

@@ -1,5 +1,5 @@
-import {moveLeftBy, moveRightBy, Move} from "../src/domain";
-import {tryParse} from "../src/parse";
+import {moveLeftBy, moveRightBy, Move} from "./domain.js";
+import {tryParse} from "./parse.js";
 
 test("Empty string is empty array", () => {
     let input = ""
