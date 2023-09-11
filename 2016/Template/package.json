@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "main": "dist/index.js",
   "scripts": {
-    "start": "tsc && node dist/index.js",
+    "star1": "tsc && node dist/star1/index.js",
+    "star2": "tsc && node dist/star2/index.js",
     "test": "jest"
   },
   "devDependencies": {
