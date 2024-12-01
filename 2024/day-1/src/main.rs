@@ -27,12 +27,24 @@ fn parse_lists(s: &String) -> (Vec<i32>, Vec<i32>) {
     );
 }
 
-fn calc_sum_similarity(mut left: Vec<i32>, mut right: Vec<i32>) -> i32 {
+fn count_occurrences(vec: &Vec<i32>, value: i32) -> usize {
+    vec.iter().filter(|&&x| x == value).count()
+}
+
+fn calc_sum_similarity(left: &Vec<i32>, right: &Vec<i32>) -> i32 {
+    let mut left = left.clone();
     left.sort();
+    let mut right = right.clone();
     right.sort();
     let distances = left.iter().zip(right.iter()).map(|(a, b)| (b - a).abs());
 
     return distances.sum();
+}
+
+fn calc_count_similarity(left: &Vec<i32>, right: &Vec<i32>) -> i32 {
+    left.iter()
+        .map(|&value| value * count_occurrences(right, value) as i32)
+        .sum()
 }
 
 fn main() -> io::Result<()> {
@@ -41,8 +53,8 @@ fn main() -> io::Result<()> {
 
     let input = fs::read_to_string(file_path)?;
     let (left, right) = parse_lists(&input);
-    let sum_similarity = calc_sum_similarity(left, right);
 
-    println!("Sum similarity: {sum_similarity}");
+    println!("Sum similarity: {}", calc_sum_similarity(&left, &right));
+    println!("Count similarity: {}", calc_count_similarity(&left, &right));
     Ok(())
 }
