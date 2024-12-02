@@ -10,10 +10,18 @@ fn main() -> io::Result<()> {
 
     let text = fs::read_to_string(file_path)?;
     let input = text.lines();
-    let reports = input.map(|it| parse::report(it));
-    let safe_count = reports.filter(|it| evaluate::is_safe(it)).count();
+    let reports = input.map(|it| parse::report(it)).collect::<Vec<_>>();
 
-    println!("There were {safe_count} safe lines");
+    let strict_safe_count = reports
+        .iter()
+        .filter(|it| evaluate::is_strict_safe(it))
+        .count();
+    println!("There were {strict_safe_count} strictly safe lines");
 
+    let loose_safe_count = reports
+        .iter()
+        .filter(|it| evaluate::is_loose_safe(it))
+        .count();
+    println!("There were {loose_safe_count} loosly safe lines");
     Ok(())
 }

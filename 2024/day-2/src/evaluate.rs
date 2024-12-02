@@ -22,10 +22,30 @@ fn has_small_jumps(items: &[u8]) -> bool {
     })
 }
 
-pub fn is_safe(report: &[u8]) -> bool {
+pub fn is_strict_safe(report: &[u8]) -> bool {
     let is_directional = is_directional(report);
     let has_small_jumps = has_small_jumps(report);
     return is_directional && has_small_jumps;
+}
+
+pub fn is_loose_safe(report: &[u8]) -> bool {
+    if is_strict_safe(report) {
+        return true;
+    }
+
+    for skip_index in 0..report.len() {
+        let loose_report = report
+            .iter()
+            .enumerate()
+            .filter(|&(i, _)| i != skip_index)
+            .map(|(_, &val)| val)
+            .collect::<Vec<_>>();
+        if is_strict_safe(&loose_report) {
+            return true;
+        }
+    }
+
+    false
 }
 
 #[cfg(test)]
