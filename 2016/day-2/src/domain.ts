@@ -75,3 +75,4 @@ export const solveAdvancedBathroomCode = (input: string) => {
         .map(() => 'A')
         .join('');
 };
+

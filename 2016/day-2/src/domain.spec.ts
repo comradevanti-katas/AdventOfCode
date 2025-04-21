@@ -148,6 +148,16 @@ describe("advanced bathroom code", () => {
     
     );
 
+    it('should solve the example', () => {
+        let input = `ULL
+RRDDD
+LURDL
+UUUUD`;
+
+        let password = solveAdvancedBathroomCode(input);
+
+        expect(password).to.equal("5DB3");
+    });
 
 })
 
