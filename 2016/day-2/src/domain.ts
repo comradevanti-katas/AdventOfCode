@@ -9,14 +9,6 @@ export const solveBathroomCode = (input: string) => {
         return null;
     }
 
-    if (input === 'U') {
-        return 2;
-    }
-
-    if (input === 'UR') {
-        return 3;
-    }
-
     const lines = input.split(EOL);
     let password = "";
     let currentPos: [number,  number] = startPos;
@@ -31,13 +23,13 @@ export const solveBathroomCode = (input: string) => {
 
                 switch (currentLine![j]) {
                     case 'U':
-                        currentPos = [currentPos[0], currentPos[1] !== 2 ? currentPos[1] + 1 : currentPos[1]];
+                        currentPos = [currentPos[0], currentPos[1] !== 0 ? currentPos[1] - 1 : currentPos[1]];
                         break;
                     case 'R':
                         currentPos = [currentPos[0] !== 2 ? currentPos[0] + 1 : currentPos[0], currentPos[1] ];
                         break;
                     case 'D':
-                        currentPos = [currentPos[0], currentPos[1] !== 0 ? currentPos[1] - 1 : currentPos[1]];
+                        currentPos = [currentPos[0], currentPos[1] !== 2 ? currentPos[1] + 1 : currentPos[1]];
                         break;
                     case 'L':
                         currentPos = [currentPos[0] !== 0 ? currentPos[0] - 1 : currentPos[0], currentPos[1] ];
@@ -53,20 +45,6 @@ export const solveBathroomCode = (input: string) => {
         return parseInt(password);
 
     }
-
-  
-/*
-    if (lines?.length > 0) {
-        let password = '';
-        for (let i = 0; i < lines?.length; i++) {
-            password += '1';
-        }
-        return parseInt(password);
-    }
-    
- */
-    
-    
 
 };
     
