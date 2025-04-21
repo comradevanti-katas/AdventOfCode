@@ -1,6 +1,6 @@
 import fc from 'fast-check';
 import { expect, it } from 'vitest';
-import { calcShortestDistance, goRight } from './domain';
+import { calcShortestDistance, goLeft, goRight } from './domain';
 
 it('should be zero for empty instructions', () => {
     const distance = calcShortestDistance([]);
@@ -29,4 +29,15 @@ it('should be zero if we walk in circle', () => {
     ]);
 
     expect(actual).to.equal(0);
+});
+
+it('should solve example', () => {
+    const actual = calcShortestDistance([
+        goRight(5),
+        goLeft(5),
+        goRight(5),
+        goRight(3),
+    ]);
+
+    expect(actual).to.equal(12);
 });
