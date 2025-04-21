@@ -1,6 +1,9 @@
 import { Array, Effect, pipe, String } from 'effect';
 import { readInput } from './aocUtils';
-import { calcShortestDistance } from './domain';
+import {
+    calcShortestDistance,
+    calcShortestDistanceToDuplicatedLocation,
+} from './domain';
 import { parseInstruction } from './parse';
 
 const getInstructions = pipe(
@@ -19,7 +22,7 @@ Effect.runPromise(star1Program).then(console.log).catch(console.error);
 
 const star2Program = pipe(
     getInstructions,
-    Effect.map(() => 0),
+    Effect.map(calcShortestDistanceToDuplicatedLocation),
     Effect.map(
         (dist) =>
             `The shortest distance to a twice visited block is ${dist} blocks`
