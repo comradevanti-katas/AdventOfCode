@@ -1,0 +1,20 @@
+{
+    "configurations": [
+        {
+            "name": "Run Advent of Code",
+            "type": "node",
+            "request": "launch",
+            "program": "src/index.ts",
+            "runtimeExecutable": "tsx",
+            "args": [
+                "${workspaceFolder}/input"
+            ],
+            "console": "integratedTerminal",
+            "internalConsoleOptions": "neverOpen",
+            "skipFiles": [
+                "<node_internals>/**",
+                "${workspaceFolder}/node_modules/**",
+            ],
+        }
+    ]
+}
