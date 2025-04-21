@@ -26,6 +26,6 @@ it('password length matches line count', () =>
                 .join(EOL);
             let password = solveBathroomCode(input);
 
-            expect(password.toString()).to.have.length(count);
+            expect(password?.toString()).to.have.length(count);
         })
     ));
