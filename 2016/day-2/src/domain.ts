@@ -1,3 +1,5 @@
+import { flow, String } from 'effect';
+
 const pad = [
     [1, 2, 3],
     [4, 5, 6],
@@ -5,12 +7,14 @@ const pad = [
 ];
 const startPos: [number, number] = [1, 1];
 
+const splitIntoLines = flow(String.trim, String.split(/[\n\r]+/));
+
 export const solveBathroomCode = (input: string) => {
     if (input.length === 0) {
         return null;
     }
 
-    const lines = input.trim().split(/[\n\r]+/);
+    const lines = splitIntoLines(input);
     let password = '';
     let currentPos: [number, number] = startPos;
 
@@ -65,5 +69,9 @@ export const solveBathroomCode = (input: string) => {
 };
 
 export const solveAdvancedBathroomCode = (input: string) => {
-    return 'A';
+    const lines = splitIntoLines(input);
+
+    return Array.from({ length: lines.length })
+        .map(() => 'A')
+        .join('');
 };
