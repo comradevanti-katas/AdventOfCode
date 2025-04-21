@@ -16,10 +16,10 @@ export interface Instruction {
 }
 
 export const goRight = (n: number) =>
-    ({ dir: Dir.Right, dist: n }) satisfies Instruction;
+    ({ dir: Dir.Right, dist: n } satisfies Instruction);
 
 export const goLeft = (n: number) =>
-    ({ dir: Dir.Left, dist: n }) satisfies Instruction;
+    ({ dir: Dir.Left, dist: n } satisfies Instruction);
 
 interface Position {
     x: number;
@@ -35,11 +35,27 @@ export const calcShortestDistance = (
     return finalPos.x + finalPos.y;
 };
 
-export const calcShortestDistanceToDuplicatedLocation = (instructions: ReadonlyArray<Instruction>) => {
-  throw new Error();
-}
+export const calcShortestDistanceToDuplicatedLocation = (
+    instructions: ReadonlyArray<Instruction>
+) => {
+    throw new Error();
+};
+
+const turn = (facing: LookDir, dir: Dir) => {
+    switch (facing) {
+        case LookDir.North:
+            return dir === Dir.Left ? LookDir.West : LookDir.East;
+        case LookDir.East:
+            return dir === Dir.Left ? LookDir.North : LookDir.South;
+        case LookDir.South:
+            return dir === Dir.Left ? LookDir.East : LookDir.West;
+        case LookDir.West:
+            return dir === Dir.Left ? LookDir.South : LookDir.North;
+    }
+};
 
 const calcNextPosition = (prev: Position, movement: Instruction): Position => {
+    const nextLookDir = turn(prev.lookDirection, movement.dir);
     switch (prev.lookDirection) {
         case LookDir.North:
             return {
@@ -47,8 +63,7 @@ const calcNextPosition = (prev: Position, movement: Instruction): Position => {
                     prev.x +
                     movement.dist * (movement.dir === Dir.Left ? -1 : 1),
                 y: prev.y,
-                lookDirection:
-                    movement.dir === Dir.Left ? LookDir.West : LookDir.East,
+                lookDirection: nextLookDir,
             };
 
         case LookDir.East:
@@ -57,8 +72,7 @@ const calcNextPosition = (prev: Position, movement: Instruction): Position => {
                 y:
                     prev.y +
                     movement.dist * (movement.dir === Dir.Left ? 1 : -1),
-                lookDirection:
-                    movement.dir === Dir.Left ? LookDir.North : LookDir.South,
+                lookDirection: nextLookDir,
             };
         case LookDir.South:
             return {
@@ -66,8 +80,7 @@ const calcNextPosition = (prev: Position, movement: Instruction): Position => {
                     prev.x +
                     movement.dist * (movement.dir === Dir.Left ? 1 : -1),
                 y: prev.y,
-                lookDirection:
-                    movement.dir === Dir.Left ? LookDir.East : LookDir.West,
+                lookDirection: nextLookDir,
             };
         case LookDir.West:
             return {
@@ -75,8 +88,7 @@ const calcNextPosition = (prev: Position, movement: Instruction): Position => {
                 y:
                     prev.y +
                     movement.dist * (movement.dir === Dir.Left ? -1 : 1),
-                lookDirection:
-                    movement.dir === Dir.Left ? LookDir.South : LookDir.North,
+                lookDirection: nextLookDir,
             };
     }
 };
