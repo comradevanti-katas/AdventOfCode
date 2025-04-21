@@ -9,7 +9,7 @@ export const solveBathroomCode = (input: string) => {
         return null;
     }
 
-    const lines = input.split(EOL);
+    const lines = input.trim().split(/[\n\r]+/);
     let password = "";
     let currentPos: [number,  number] = startPos;
     
@@ -17,25 +17,28 @@ export const solveBathroomCode = (input: string) => {
 
         for (let i = 0; i < lines.length; i++) {
 
-            const currentLine = lines[i];
+            const currentLine = lines[i]!.trim();
             
-            for (let j = 0; j < currentLine!.length; j++) {
+            if (currentLine !== undefined) {
 
-                switch (currentLine![j]) {
-                    case 'U':
-                        currentPos = [currentPos[0], currentPos[1] !== 0 ? currentPos[1] - 1 : currentPos[1]];
-                        break;
-                    case 'R':
-                        currentPos = [currentPos[0] !== 2 ? currentPos[0] + 1 : currentPos[0], currentPos[1] ];
-                        break;
-                    case 'D':
-                        currentPos = [currentPos[0], currentPos[1] !== 2 ? currentPos[1] + 1 : currentPos[1]];
-                        break;
-                    case 'L':
-                        currentPos = [currentPos[0] !== 0 ? currentPos[0] - 1 : currentPos[0], currentPos[1] ];
-                        break;
+                for (let j = 0; j < currentLine!.length; j++) {
+
+                    switch (currentLine![j]) {
+                        case 'U':
+                            currentPos = [currentPos[0], currentPos[1] !== 0 ? currentPos[1] - 1 : currentPos[1]];
+                            break;
+                        case 'R':
+                            currentPos = [currentPos[0] !== 2 ? currentPos[0] + 1 : currentPos[0], currentPos[1]];
+                            break;
+                        case 'D':
+                            currentPos = [currentPos[0], currentPos[1] !== 2 ? currentPos[1] + 1 : currentPos[1]];
+                            break;
+                        case 'L':
+                            currentPos = [currentPos[0] !== 0 ? currentPos[0] - 1 : currentPos[0], currentPos[1]];
+                            break;
+                    }
+
                 }
-
             }
             
             password += pad[currentPos[1]]![currentPos[0]];
