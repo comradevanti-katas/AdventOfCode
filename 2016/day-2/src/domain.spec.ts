@@ -85,3 +85,14 @@ it('should strip leading white-space', () => {
 
     expect(password).to.equal(2);
 });
+
+it('should solve example', () => {
+    let input = `ULL
+RRDDD
+LURDL
+UUUUD`;
+
+    let password = solveBathroomCode(input);
+
+    expect(password).to.equal(1985);
+});
