@@ -35,6 +35,10 @@ export const calcShortestDistance = (
     return finalPos.x + finalPos.y;
 };
 
+export const calcShortestDistanceToDuplicatedLocation = (instructions: ReadonlyArray<Instruction>) => {
+  throw new Error();
+}
+
 const calcNextPosition = (prev: Position, movement: Instruction): Position => {
     switch (prev.lookDirection) {
         case LookDir.North:

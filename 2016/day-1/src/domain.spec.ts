@@ -1,6 +1,11 @@
 import fc from 'fast-check';
 import { expect, it } from 'vitest';
-import { calcShortestDistance, goLeft, goRight } from './domain';
+import {
+    calcShortestDistance,
+    calcShortestDistanceToDuplicatedLocation,
+    goLeft,
+    goRight,
+} from './domain';
 
 it('should be zero for empty instructions', () => {
     const distance = calcShortestDistance([]);
@@ -40,4 +45,22 @@ it('should solve example', () => {
     ]);
 
     expect(actual).to.equal(12);
+});
+
+it('should be zero if no location is visited twice', () => {
+    const actual = calcShortestDistanceToDuplicatedLocation([
+        goRight(2),
+        goRight(5),
+    ]);
+    expect(actual).to.equal(0);
+});
+
+it('should be the number of the shortest distance to the first location visited twice', () => {
+    const actual = calcShortestDistanceToDuplicatedLocation([
+        goRight(8),
+        goRight(4),
+        goRight(4),
+        goRight(8),
+    ]);
+    expect(actual).to.equal(4);
 });
