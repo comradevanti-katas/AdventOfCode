@@ -3,6 +3,10 @@ import { EOL } from 'os';
 import { expect, it } from 'vitest';
 import { solveBathroomCode } from './domain';
 
+const direction = fc.constantFrom('U', 'R', 'D', 'L');
+
+const dirSequence = fc.array(direction, { minLength: 1, maxLength: 100 });
+
 const repeat = <T>(it: T, times: number) =>
     Array.from({ length: times }).map(() => it);
 
@@ -54,5 +58,20 @@ it('should be able to walk in a circle n times', () =>
 
             // Which should bring us back to where we started
             expect(password).to.equal(5);
+        })
+    ));
+
+it('should end up on down edge if we go down a bunch', () =>
+    fc.assert(
+        fc.property(dirSequence, (sequence) => {
+            // We go some random sequence and then left a bunch
+            let input = sequence + 'DDDD';
+
+            let password = solveBathroomCode(input);
+
+            // We should be at the bottom edge now
+
+            expect(password).to.be.greaterThanOrEqual(7);
+            expect(password).to.be.lessThanOrEqual(9);
         })
     ));
