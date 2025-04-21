@@ -8,6 +8,14 @@ export interface Instruction {
     readonly dist: number;
 }
 
-export const calcShortestDistance = (instructions: ReadonlyArray<Instruction>) => {
-    return instructions.reduce((previousValue,b) => previousValue + b.dist, 0);
+export const goRight = (n: number) =>
+    ({ dir: Dir.Right, dist: n } satisfies Instruction);
+
+export const goLeft = (n: number) =>
+    ({ dir: Dir.Left, dist: n } satisfies Instruction);
+
+export const calcShortestDistance = (
+    instructions: ReadonlyArray<Instruction>
+) => {
+    return instructions.reduce((previousValue, b) => previousValue + b.dist, 0);
 };
