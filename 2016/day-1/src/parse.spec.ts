@@ -20,7 +20,7 @@ it('should parse left instruction', () => {
     });
 });
 
-it('should parse left instruction', () => {
+it('should parse right instruction', () => {
     let instruction = parseInstruction('R7');
     expect(instruction).to.deep.equal({
         dir: Dir.Right,
