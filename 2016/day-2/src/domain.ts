@@ -1,4 +1,4 @@
-import { flow, String } from 'effect';
+import { Array, flow, Iterable, Option, pipe, String } from 'effect';
 
 const pad = [
     [1, 2, 3],
@@ -68,11 +68,66 @@ export const solveBathroomCode = (input: string) => {
     }
 };
 
-export const solveAdvancedBathroomCode = (input: string) => {
-    const lines = splitIntoLines(input);
+const advancedPad = [
+    [undefined, undefined, '1', undefined, undefined],
+    [undefined, '2', '3', '4', undefined],
+    ['5', '6', '7', '8', '9'],
+    [undefined, 'A', 'B', 'C', undefined],
+    [undefined, undefined, 'D', undefined, undefined],
+] as const;
 
-    return Array.from({ length: lines.length })
-        .map(() => 'A')
-        .join('');
+function* iterChars(s: string) {
+    for (let i = 0; i < s.length; i++) yield s[i]!;
+}
+
+type Dir = 'U' | 'R' | 'D' | 'L';
+
+type Pos = readonly [number, number];
+
+const movePos = ([x, y]: Pos, dir: Dir) => {
+    switch (dir) {
+        case 'U':
+            return [x, y - 1] as const;
+        case 'R':
+            return [x + 1, y] as const;
+        case 'D':
+            return [x, y + 1] as const;
+        case 'L':
+            return [x - 1, y] as const;
+    }
 };
 
+const parseDir = (s: string) => s as Dir;
+
+const getPadAt = ([x, y]: Pos) => advancedPad[y]?.[x]!;
+
+export const solveAdvancedBathroomCode = (input: string) => {
+    const solveLine = (startPos: Pos, line: string) =>
+        pipe(
+            line,
+            iterChars,
+            Iterable.map(parseDir),
+            Iterable.reduce(startPos, (pos, dir) => {
+                const nextPos = movePos(pos, dir);
+
+                const moveIsPossible = getPadAt(nextPos) !== undefined;
+
+                return moveIsPossible ? nextPos : pos;
+            })
+        );
+
+    return pipe(
+        input,
+        splitIntoLines,
+        Array.reduce([[0, 2] as Pos], (positions, line) => {
+            const startPos = Option.getOrThrow(Array.last(positions));
+
+            const nextPos = solveLine(startPos, line);
+
+            return [...positions, nextPos];
+        }),
+        Array.drop(1),
+        Array.map(getPadAt),
+        Array.join('')
+    );
+};
