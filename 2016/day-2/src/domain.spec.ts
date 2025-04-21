@@ -1,6 +1,6 @@
 import fc from 'fast-check';
 import { EOL } from 'os';
-import { expect, it } from 'vitest';
+import { expect, it, describe } from 'vitest';
 import { solveAdvancedBathroomCode, solveBathroomCode } from './domain';
 
 const direction = fc.constantFrom('U', 'R', 'D', 'L');
@@ -12,93 +12,96 @@ const dirSequence = fc
 const repeat = <T>(it: T, times: number) =>
     Array.from({ length: times }).map(() => it);
 
-it('should give null for no input', () => {
-    let password = solveBathroomCode('');
-    expect(password).to.toBeNull();
-});
+describe("basic bathroom code", () => {
 
-it('should give result for single input', () => {
-    let password = solveBathroomCode('U');
-    expect(password).to.equal(2);
-});
 
-it('should give result for single corner input', () => {
-    let password = solveBathroomCode('UR');
-    expect(password).to.equal(3);
-});
+    it('should give null for no input', () => {
+        let password = solveBathroomCode('');
+        expect(password).to.toBeNull();
+    });
 
-it('password length matches line count', () =>
-    fc.assert(
-        fc.property(fc.integer({ min: 1, max: 20 }), (count) => {
-            let input = repeat('U', count).join(EOL);
-            let password = solveBathroomCode(input);
+    it('should give result for single input', () => {
+        let password = solveBathroomCode('U');
+        expect(password).to.equal(2);
+    });
 
-            expect(password?.toString()).to.have.length(count);
-        })
-    ));
+    it('should give result for single corner input', () => {
+        let password = solveBathroomCode('UR');
+        expect(password).to.equal(3);
+    });
 
-it('should be able to walk back and forth n times', () =>
-    fc.assert(
-        fc.property(fc.integer({ min: 1, max: 20 }), (n) => {
-            // The input is n times RL, ie. walking back and forth
-            let input = repeat('RL', n).join();
+    it('password length matches line count', () =>
+        fc.assert(
+            fc.property(fc.integer({ min: 1, max: 20 }), (count) => {
+                let input = repeat('U', count).join(EOL);
+                let password = solveBathroomCode(input);
 
-            let password = solveBathroomCode(input);
+                expect(password?.toString()).to.have.length(count);
+            })
+        ));
 
-            // Which should bring us back to where we started
-            expect(password).to.equal(5);
-        })
-    ));
+    it('should be able to walk back and forth n times', () =>
+        fc.assert(
+            fc.property(fc.integer({ min: 1, max: 20 }), (n) => {
+                // The input is n times RL, ie. walking back and forth
+                let input = repeat('RL', n).join();
 
-it('should be able to walk in a circle n times', () =>
-    fc.assert(
-        fc.property(fc.integer({ min: 1, max: 20 }), (n) => {
-            // The input is n times ULDR, ie. walking in a circle
-            let input = repeat('ULDR', n).join();
+                let password = solveBathroomCode(input);
 
-            let password = solveBathroomCode(input);
+                // Which should bring us back to where we started
+                expect(password).to.equal(5);
+            })
+        ));
 
-            // Which should bring us back to where we started
-            expect(password).to.equal(5);
-        })
-    ));
+    it('should be able to walk in a circle n times', () =>
+        fc.assert(
+            fc.property(fc.integer({ min: 1, max: 20 }), (n) => {
+                // The input is n times ULDR, ie. walking in a circle
+                let input = repeat('ULDR', n).join();
 
-it('should end up on bottom edge if we go down a bunch', () =>
-    fc.assert(
-        fc.property(dirSequence, (sequence) => {
-            // We go some random sequence and then down a bunch
-            let input = sequence + 'DDDD';
+                let password = solveBathroomCode(input);
 
-            let password = solveBathroomCode(input);
+                // Which should bring us back to where we started
+                expect(password).to.equal(5);
+            })
+        ));
 
-            // We should be at the bottom edge now
+    it('should end up on bottom edge if we go down a bunch', () =>
+        fc.assert(
+            fc.property(dirSequence, (sequence) => {
+                // We go some random sequence and then down a bunch
+                let input = sequence + 'DDDD';
 
-            expect(password).to.be.greaterThanOrEqual(7);
-            expect(password).to.be.lessThanOrEqual(9);
-        })
-    ));
+                let password = solveBathroomCode(input);
 
-it('should strip leading white-space', () => {
-    let input = '    U';
+                // We should be at the bottom edge now
 
-    let password = solveBathroomCode(input);
+                expect(password).to.be.greaterThanOrEqual(7);
+                expect(password).to.be.lessThanOrEqual(9);
+            })
+        ));
 
-    expect(password).to.equal(2);
-});
+    it('should strip leading white-space', () => {
+        let input = '    U';
 
-it('should solve example', () => {
-    let input = `ULL
+        let password = solveBathroomCode(input);
+
+        expect(password).to.equal(2);
+    });
+
+    it('should solve example', () => {
+        let input = `ULL
 RRDDD
 LURDL
 UUUUD`;
 
-    let password = solveBathroomCode(input);
+        let password = solveBathroomCode(input);
 
-    expect(password).to.equal(1985);
-});
+        expect(password).to.equal(1985);
+    });
 
-it('should handle leading and trailing empty lines', () => {
-    let input = `
+    it('should handle leading and trailing empty lines', () => {
+        let input = `
     
 ULL
 RRDDD
@@ -107,15 +110,37 @@ UUUUD
 
 `;
 
-    let password = solveBathroomCode(input);
+        let password = solveBathroomCode(input);
 
-    expect(password).to.equal(1985);
-});
+        expect(password).to.equal(1985);
+    });
+    
+    
+    
+})
 
-it('should contain letters in the code', () => {
+describe("advanced bathroom code", () => {
     
-    let password = solveAdvancedBathroomCode("RD");
-    expect(password).to.equal("A")
-    
-}); 
+    it('should contain letters in the code', () => {
+
+        let password = solveAdvancedBathroomCode("RD");
+        expect(password).to.equal("A")
+
+    });
+
+    it('password length matches line count', () =>
+        fc.assert(
+            fc.property(fc.integer({ min: 1, max: 20 }), (count) => {
+                let input = repeat('U', count).join(EOL);
+                let password = solveAdvancedBathroomCode(input);
+
+                expect(password?.toString()).to.have.length(count);
+            })
+        ));
+
+
+
+
+})
+
 
