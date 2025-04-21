@@ -3,5 +3,5 @@ import { solveBathroomCode } from './domain';
 
 it('should give result for single input', () => {
     let password = solveBathroomCode('U');
-    expect(password).to.equal(6);
+    expect(password).to.equal(2);
 });
