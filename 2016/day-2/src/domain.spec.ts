@@ -5,7 +5,9 @@ import { solveBathroomCode } from './domain';
 
 const direction = fc.constantFrom('U', 'R', 'D', 'L');
 
-const dirSequence = fc.array(direction, { minLength: 1, maxLength: 100 });
+const dirSequence = fc
+    .array(direction, { minLength: 1, maxLength: 100 })
+    .map((arr) => arr.join());
 
 const repeat = <T>(it: T, times: number) =>
     Array.from({ length: times }).map(() => it);
