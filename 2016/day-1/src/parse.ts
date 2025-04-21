@@ -1,13 +1,17 @@
-import { Dir } from "./domain";
+import { Dir } from './domain';
 
 export const parseDir = (s: string) => {
-    if(s === "R"){
+    if (s === 'R') {
         return Dir.Right;
     }
 
-    if(s === "L"){
+    if (s === 'L') {
         return Dir.Left;
     }
 
-    throw new Error("Bad Direction Input");
+    throw new Error('Bad Direction Input');
+};
+
+export const parseInstruction = (s: unknown) => {
+    throw new Error('not implemented');
 };
