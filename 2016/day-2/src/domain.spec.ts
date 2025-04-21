@@ -139,6 +139,14 @@ describe("advanced bathroom code", () => {
         ));
 
 
+    it('should handle no movement when reaching end of shape ', () => {
+
+            let password = solveAdvancedBathroomCode("RRRRRRRRRRRRRRRRRRRR");
+            expect(password).to.equal("9");
+
+        }
+    
+    );
 
 
 })
