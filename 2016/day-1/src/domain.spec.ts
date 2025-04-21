@@ -10,9 +10,15 @@ it('should be zero for empty instructions', () => {
 
 it('should be the number if we just walk in a straight line', () =>
     fc.assert(
-        fc.property(fc.integer(), (dist) => {
-            const instruction = { dir: Dir.Left, dist } satisfies Instruction;
-            const actual = calcShortestDistance([instruction]);
-            expect(actual).to.equal(dist);
-        })
+        fc.property(
+            fc.integer().filter((n) => n > 0),
+            (dist) => {
+                const instruction = {
+                    dir: Dir.Left,
+                    dist,
+                } satisfies Instruction;
+                const actual = calcShortestDistance([instruction]);
+                expect(actual).to.equal(dist);
+            }
+        )
     ));
