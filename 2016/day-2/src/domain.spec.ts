@@ -43,3 +43,16 @@ it('should be able to walk back and forth n times', () =>
             expect(password).to.equal(5);
         })
     ));
+
+it('should be able to walk in a circle n times', () =>
+    fc.assert(
+        fc.property(fc.integer({ min: 1, max: 20 }), (n) => {
+            // The input is n times ULDR, ie. walking in a circle
+            let input = repeat('ULDR', n).join();
+
+            let password = solveBathroomCode(input);
+
+            // Which should bring us back to where we started
+            expect(password).to.equal(5);
+        })
+    ));
