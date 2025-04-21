@@ -96,3 +96,19 @@ UUUUD`;
 
     expect(password).to.equal(1985);
 });
+
+it('should handle leading and trailing empty lines', () => {
+    let input = `
+    
+ULL
+RRDDD
+LURDL
+UUUUD
+
+`;
+
+    let password = solveBathroomCode(input);
+
+    expect(password).to.equal(1985);
+});
+
