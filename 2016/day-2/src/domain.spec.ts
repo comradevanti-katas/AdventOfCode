@@ -63,7 +63,7 @@ it('should be able to walk in a circle n times', () =>
         })
     ));
 
-it('should end up on down edge if we go down a bunch', () =>
+it('should end up on bottom edge if we go down a bunch', () =>
     fc.assert(
         fc.property(dirSequence, (sequence) => {
             // We go some random sequence and then down a bunch
