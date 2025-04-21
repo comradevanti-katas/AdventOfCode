@@ -9,5 +9,5 @@ export interface Instruction {
 }
 
 export const calcShortestDistance = (instructions: ReadonlyArray<Instruction>) => {
-    return 0;
+    return instructions.reduce((previousValue,b) => previousValue + b.dist, 0);
 };
