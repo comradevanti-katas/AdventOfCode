@@ -77,3 +77,11 @@ it('should end up on bottom edge if we go down a bunch', () =>
             expect(password).to.be.lessThanOrEqual(9);
         })
     ));
+
+it('should strip leading white-space', () => {
+    let input = '    U';
+
+    let password = solveBathroomCode(input);
+
+    expect(password).to.equal(2);
+});
