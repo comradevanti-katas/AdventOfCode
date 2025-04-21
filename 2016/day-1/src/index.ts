@@ -1,15 +1,13 @@
-import {Effect, pipe, String, Array} from 'effect';
-import {readInput} from './aocUtils';
-import {parseInstruction} from "./parse";
-import {calcShortestDistance} from "./domain";
+import { Array, Effect, pipe, String } from 'effect';
+import { readInput } from './aocUtils';
+import { calcShortestDistance } from './domain';
+import { parseInstruction } from './parse';
 
 const program = pipe(
-  readInput(),
-  Effect.map(String.split(", ")),
-  Effect.map(Array.map(parseInstruction)),
-  Effect.map((instructionArray) => calcShortestDistance(instructionArray))
+    readInput(),
+    Effect.map(String.split(', ')),
+    Effect.map(Array.map(parseInstruction)),
+    Effect.map(calcShortestDistance)
 );
 
 Effect.runPromise(program).then(console.log).catch(console.error);
-
-
