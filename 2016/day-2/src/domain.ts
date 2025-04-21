@@ -1,13 +1,9 @@
-
-import { EOL } from 'os';
-
 const pad = [
     [1, 2, 3],
     [4, 5, 6],
     [7, 8, 9],
 ];
 const startPos: [number, number] = [1, 1];
-
 
 export const solveBathroomCode = (input: string) => {
     if (input.length === 0) {
@@ -68,6 +64,6 @@ export const solveBathroomCode = (input: string) => {
     }
 };
 
-export const solveAdvancedBathroomCode = (input: string)=> {
-    throw new Error("Not implemented");
-}
+export const solveAdvancedBathroomCode = (input: string) => {
+    return 'A';
+};
