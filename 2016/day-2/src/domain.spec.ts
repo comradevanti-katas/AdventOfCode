@@ -29,3 +29,18 @@ it('password length matches line count', () =>
             expect(password?.toString()).to.have.length(count);
         })
     ));
+
+it('should be able to walk back and forth n times', () =>
+    fc.assert(
+        fc.property(fc.integer({ min: 1, max: 20 }), (n) => {
+            // The input is n times RL, ie. walking back and forth
+            let input = Array.from({ length: n })
+                .map(() => 'RL')
+                .join();
+
+            let password = solveBathroomCode(input);
+
+            // Which should bring us back to where we started
+            expect(password).to.equal(5);
+        })
+    ));
