@@ -1,7 +1,7 @@
 import fc from 'fast-check';
 import { EOL } from 'os';
 import { expect, it } from 'vitest';
-import { solveBathroomCode } from './domain';
+import { solveAdvancedBathroomCode, solveBathroomCode } from './domain';
 
 const direction = fc.constantFrom('U', 'R', 'D', 'L');
 
@@ -111,4 +111,11 @@ UUUUD
 
     expect(password).to.equal(1985);
 });
+
+it('should contain letters in the code', () => {
+    
+    let password = solveAdvancedBathroomCode("RD");
+    expect(password).to.equal("A")
+    
+}); 
 
