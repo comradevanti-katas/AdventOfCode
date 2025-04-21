@@ -1,6 +1,6 @@
 import fc from 'fast-check';
 import { expect, it } from 'vitest';
-import { calcShortestDistance, Dir, goRight, type Instruction } from './domain';
+import { calcShortestDistance, goRight } from './domain';
 
 it('should be zero for empty instructions', () => {
     const distance = calcShortestDistance([]);
@@ -13,10 +13,7 @@ it('should be the number if we just walk in a straight line', () =>
         fc.property(
             fc.integer().filter((n) => n > 0),
             (dist) => {
-                const instruction = {
-                    dir: Dir.Left,
-                    dist,
-                } satisfies Instruction;
+                const instruction = goRight(dist);
                 const actual = calcShortestDistance([instruction]);
                 expect(actual).to.equal(dist);
             }
