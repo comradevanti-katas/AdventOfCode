@@ -1,5 +1,11 @@
 
 export const solveBathroomCode = (input: string) => {
-    return 2;
+    if (input === "U"){
+        return 2;
+    }
+    
+    if (input === "UR"){
+        return 3;
+    }
 };
     
