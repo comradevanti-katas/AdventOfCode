@@ -21,7 +21,7 @@ export const goRight = (n: number) =>
 export const goLeft = (n: number) =>
     ({ dir: Dir.Left, dist: n } satisfies Instruction);
 
-interface Position {
+interface State {
     x: number;
     y: number;
     lookDirection: LookDir;
@@ -30,16 +30,14 @@ interface Position {
 export const calcShortestDistance = (
     instructions: ReadonlyArray<Instruction>
 ) => {
-    const startPos: Position = { x: 0, y: 0, lookDirection: LookDir.North };
-    const finalPos = instructions.reduce(calcNextPosition, startPos);
-    return finalPos.x + finalPos.y;
+    const startState: State = { x: 0, y: 0, lookDirection: LookDir.North };
+    const endState = instructions.reduce(calcNextState, startState);
+    return endState.x + endState.y;
 };
 
 export const calcShortestDistanceToDuplicatedLocation = (
     instructions: ReadonlyArray<Instruction>
-) => {
-    throw new Error();
-};
+) => {};
 
 const turn = (facing: LookDir, dir: Dir) => {
     switch (facing) {
@@ -54,7 +52,7 @@ const turn = (facing: LookDir, dir: Dir) => {
     }
 };
 
-const calcNextPosition = (prev: Position, movement: Instruction): Position => {
+const calcNextState = (prev: State, movement: Instruction): State => {
     const nextLookDir = turn(prev.lookDirection, movement.dir);
     switch (prev.lookDirection) {
         case LookDir.North:
